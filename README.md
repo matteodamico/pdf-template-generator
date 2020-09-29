@@ -9,12 +9,14 @@ To create your own template use LibreOffice - Draw that should be already presen
 
 ### Usage
 
-1.Create the docker image with 
+1. Create the docker image with 
 
 `$docker build -t pdfgenerator . `
 
-2.Run the container with:
+
+2. Run the container with:
 
 `$docker run -v $(pwd)/export:/export pdfcreator `
 
-3.See the pdf file in the export folder in your local file system
+
+3. See the pdf file in the export folder in your local file system
