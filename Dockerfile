@@ -6,7 +6,8 @@ RUN mvn -f /usr/src/pdf-template-generator/pom.xml clean package
 FROM openjdk:11
 RUN mkdir /export
 RUN mkdir /template
-COPY pdf-template.pdf /template
+COPY template/pdf-template.pdf /template
+COPY pdf-properties.txt /template
 COPY --from=build /usr/src/pdf-template-generator/target/pdf-template-generator-jar-with-dependencies.jar /usr/pdf-template-generator/pdf-template-generator.jar
 
 VOLUME /export
