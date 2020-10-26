@@ -1,2 +1,0 @@
-txt_1= Questo è il primo messaggio
-txt_2= Questo è il secondo messaggio

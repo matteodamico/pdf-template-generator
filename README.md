@@ -1,34 +1,34 @@
-# pdf-template-generator
-A Java containerized application to fill out your own PDF form.
+# PDF template generator
+This is a Java Spring-boot application that exposes one REST microservice to fill information within Pdf file.
 
-### Introduction
-Pdf-template-generator populate a PDF document with Java using the PDFBox library. 
-It is containerized so you can run it directly.
-The output will be generated in the export folder.
-To create your own template use LibreOffice - Draw that should be already present in Ubuntu distribution.
-
+-----------
+### REQUIREMENTS
+- JDK installed to compile the sourcecode
+- Maven
+-----------
 
 ### Usage
+1. Create your pdf form file with your preferred editor (i.e. LibreOffice Draw).
+**Note** Save each textbox obj with a properly name to use it later.
+2. Run the spring-boot application.
+3. Send the pdf template file with a POST request to http://localhost:8080/pdfcreate adding each property that you want fill within the document as request parameters.
 
-1. Create your pdf form file with your preferred editor (i.e. LibreOffice Draw). 
+Example:
+http://localhost:8080/pdfcreate?txt_1=abc&txt_2=def
 
-   Store it in the template folder.
-   
-   **Note** Save each textbox obj with a properly name to use it later.
+or use the cURL command:
 
-2. Fill the *properties.txt* file using the following schema:
+`$curl --location --request POST 'http://localhost:8080/pdfcreate?txt_1=abc&txt_2=def' \
+--form 'file=@/home/matt/Projects/template/pdf-template.pdf' -o my_pdf_file.pdf`
 
-    `txt_1= text to display in the form`
-
-   where `txt_1` is the name of textbox present in the pdf-template file.
-
-3. Create the docker image with 
-
-   `$docker build -t pdfgenerator . `
-
-4. Run the container with:
-
-   `$docker run -v $(pwd)/export:/export pdfcreator `
+**NOTE** this application is currently not scalable due to its own approach to delete temporary folder before process a new request.
 
 
-5. See the pdf file in the export folder in your local file system
+### Easter egg
+http://127.0.0.1:8080/hello
+
+http://127.0.0.1:8080/hello?name=YOURNAME
+
+-----------
+
+
