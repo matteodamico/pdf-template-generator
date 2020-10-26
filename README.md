@@ -1,4 +1,4 @@
-# pdf-template-generator
+# PDF template generator
 A Java containerized application to fill out your own PDF form.
 
 ### Introduction
