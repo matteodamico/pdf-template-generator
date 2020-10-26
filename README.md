@@ -6,7 +6,7 @@ Pdf-template-generator populate a PDF document with Java using the PDFBox librar
 It is containerized so you can run it directly.
 The output will be generated in the export folder.
 To create your own template use LibreOffice - Draw that should be already present in Ubuntu distribution.
-
+Please see the *master* branch to get the REST application version.
 
 ### Usage
 
